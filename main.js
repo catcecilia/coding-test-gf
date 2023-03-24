@@ -34,13 +34,12 @@ let amiByState = {
   };
 
   //Function to check eligibility based on state residence, house hold size, annual income
-  //implies that the household value is 1-8 given properties of amiByState  
   //boolean is used to dictate that true = eligible, false = ineligible. also to use with the form interface created
   const checkEligibility =(state, houseHoldSize,annualIncome) =>{
-    const ami = amiByState[state][houseHoldSize];
-    if(annualIncome <= ami){
+    const amiThreshold = amiByState[state][houseHoldSize];
+    if(annualIncome <= amiThreshold){
         return true;
-    } else{
+    } else{  //returns false if passed unsupported state or household size
         return false;
     }
   }
